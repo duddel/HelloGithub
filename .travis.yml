@@ -1,0 +1,15 @@
+dist: xenial
+
+language: cpp
+compiler: gcc
+
+before_script:
+  - mkdir _build
+  - cd _build
+  - cmake ..
+
+script:
+  - make
+
+after_success:
+  - ./HelloGithub
