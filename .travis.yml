@@ -17,7 +17,7 @@ matrix:
 before_script:
   - mkdir _build
   - cd _build
-  - cmake -G \""CMAKE_GENERATOR"\" ..
+  - cmake -G \""$CMAKE_GENERATOR"\" ..
 
 script:
   - cmake --build .
