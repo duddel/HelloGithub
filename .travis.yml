@@ -1,6 +1,11 @@
+language: cpp
+
+os:
+  - windows
+  - linux
+
 dist: xenial
 
-language: cpp
 compiler: gcc
 
 before_script:
@@ -9,7 +14,7 @@ before_script:
   - cmake ..
 
 script:
-  - make
+  - cmake --build .
 
 after_success:
   - ./HelloGithub
