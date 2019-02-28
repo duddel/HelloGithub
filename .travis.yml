@@ -3,13 +3,12 @@ language: cpp
 matrix:
   include:
     - os: windows
-      env:
-        - CMAKE_GENERATOR="MinGW Makefiles"
-        - CMAKE_GENERATOR="Visual Studio 15 2017"
+      env: CMAKE_GENERATOR="MinGW Makefiles"
+    - os: windows
+      env: CMAKE_GENERATOR="Visual Studio 15 2017"
     - os: linux
       dist: xenial
-      env:
-        - CMAKE_GENERATOR="Unix Makefiles"
+      env: CMAKE_GENERATOR="Unix Makefiles"
 
 # todo: what effect has specifying compilers when building with cmake?
 #compiler: gcc
@@ -17,7 +16,7 @@ matrix:
 before_script:
   - mkdir _build
   - cd _build
-  - cmake -G \""$CMAKE_GENERATOR"\" ..
+  - cmake -G \"$CMAKE_GENERATOR\" ..
 
 script:
   - cmake --build .
