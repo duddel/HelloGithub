@@ -1,5 +1,9 @@
 language: cpp
 
+env:
+  - CMAKE_BUILD_TYPE=Release
+  - CMAKE_BUILD_TYPE=Debug
+
 matrix:
   include:
     - os: windows
@@ -16,7 +20,7 @@ matrix:
 before_script:
   - mkdir _build
   - cd _build
-  - cmake -G "$CMAKE_GENERATOR" ..
+  - cmake -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -G "$CMAKE_GENERATOR" ..
 
 script:
   - cmake --build .
