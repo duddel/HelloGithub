@@ -4,14 +4,17 @@ os:
   - windows
   - linux
 
+# todo: where to specify dist that only applies to os: linux?
 dist: xenial
 
-compiler: gcc
+# todo: what effect has specifying compilers when building with cmake?
+#compiler: gcc
 
 before_script:
   - mkdir _build
   - cd _build
-  - cmake ..
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then cmake -G "MinGW Makefiles" ..; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cmake ..; fi
 
 script:
   - cmake --build .
