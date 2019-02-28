@@ -1,18 +1,21 @@
 language: cpp
 
-env:
-  - CMAKE_BUILD_TYPE=Release
-  - CMAKE_BUILD_TYPE=Debug
-
 matrix:
   include:
     - os: windows
-      env: CMAKE_GENERATOR="MinGW Makefiles"
+      env: CMAKE_GENERATOR="MinGW Makefiles" CMAKE_BUILD_TYPE=Release
     - os: windows
-      env: CMAKE_GENERATOR="Visual Studio 15 2017"
+      env: CMAKE_GENERATOR="MinGW Makefiles" CMAKE_BUILD_TYPE=Debug
+    - os: windows
+      env: CMAKE_GENERATOR="Visual Studio 15 2017" CMAKE_BUILD_TYPE=Release
+    - os: windows
+      env: CMAKE_GENERATOR="Visual Studio 15 2017" CMAKE_BUILD_TYPE=Debug
     - os: linux
       dist: xenial
-      env: CMAKE_GENERATOR="Unix Makefiles"
+      env: CMAKE_GENERATOR="Unix Makefiles" CMAKE_BUILD_TYPE=Release
+    - os: linux
+      dist: xenial
+      env: CMAKE_GENERATOR="Unix Makefiles" CMAKE_BUILD_TYPE=Debug
 
 # todo: what effect has specifying compilers when building with cmake?
 #compiler: gcc
