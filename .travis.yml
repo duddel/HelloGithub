@@ -2,31 +2,28 @@ language: cpp
 
 matrix:
   include:
+# MinGW is currently broken because of that CMake error:
+# "For MinGW make to work correctly sh.exe must NOT be in your path."
+#    - os: windows
+#      env: CMAKE_ARGS="-G \"MinGW Makefiles\" -DCMAKE_BUILD_TYPE=Release"
     - os: windows
-      env: CMAKE_GENERATOR="MinGW Makefiles" CMAKE_BUILD_TYPE=Release
-    - os: windows
-      env: CMAKE_GENERATOR="MinGW Makefiles" CMAKE_BUILD_TYPE=Debug
-    - os: windows
-      env: CMAKE_GENERATOR="Visual Studio 15 2017" CMAKE_BUILD_TYPE=Release
-    - os: windows
-      env: CMAKE_GENERATOR="Visual Studio 15 2017" CMAKE_BUILD_TYPE=Debug
+      env: CMAKE_ARGS="-G \"Visual Studio 15 2017\" -DCMAKE_BUILD_TYPE=Release"
     - os: linux
       dist: xenial
-      env: CMAKE_GENERATOR="Unix Makefiles" CMAKE_BUILD_TYPE=Release
+      compiler: gcc
+      env: CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release"
     - os: linux
       dist: xenial
-      env: CMAKE_GENERATOR="Unix Makefiles" CMAKE_BUILD_TYPE=Debug
-
-# todo: what effect has specifying compilers when building with cmake?
-#compiler: gcc
+      compiler: clang
+      env: CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release"
 
 before_script:
   - mkdir _build
   - cd _build
-  - cmake -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -G "$CMAKE_GENERATOR" ..
+  - cmake $CMAKE_ARGS ..
 
 script:
   - cmake --build .
 
-after_success:
-  - ./HelloGithub
+#after_success:
+#  - ./HelloGithub
