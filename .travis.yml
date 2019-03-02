@@ -2,25 +2,19 @@ language: cpp
 
 matrix:
   include:
-# MinGW is currently broken because of that CMake error:
-# "For MinGW make to work correctly sh.exe must NOT be in your path."
-#    - os: windows
-#      env: CMAKE_ARGS="-G \"MinGW Makefiles\" -DCMAKE_BUILD_TYPE=Release"
     - os: windows
-      env: CMAKE_ARGS="-G \"Visual Studio 15 2017\" -DCMAKE_BUILD_TYPE=Release"
+      compiler: gcc
     - os: linux
       dist: xenial
       compiler: gcc
-      env: CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release"
     - os: linux
       dist: xenial
       compiler: clang
-      env: CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release"
 
 before_script:
   - mkdir _build
   - cd _build
-  - cmake $CMAKE_ARGS ..
+  - cmake -DCMAKE_BUILD_TYPE=Release ..
 
 script:
   - cmake --build .
