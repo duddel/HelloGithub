@@ -17,3 +17,6 @@ before_script:
 
 script:
   - cmake --build .
+
+deploy:
+  skip_cleanup: true
