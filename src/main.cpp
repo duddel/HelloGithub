@@ -9,6 +9,6 @@ enum class Color{
 
 int main()
 {
-    std::cout << "Hello Github!" << std::endl;
+    std::cout << "Hello GitHub!" << std::endl;
     return 0;
 }

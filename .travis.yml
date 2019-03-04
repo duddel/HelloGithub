@@ -13,7 +13,7 @@ matrix:
 before_script:
 - mkdir _build
 - cd _build
-- cmake -DCMAKE_BUILD_TYPE=Release ..
+- cmake ..
 
 script:
 - cmake --build .
@@ -22,7 +22,7 @@ deploy:
   provider: releases
   api_key:
     secure: "QJidQT20sPHQcTLYditBPwn/a7SQ7ZMwDpthorgKVWc18bf+/z1tHQH5xVgbxhX8PQFWYPZI1Sgb4PLAKran19AhAT1EoYCB4DDyQBRjxoN36w7CHvCkq3/UdZwBTmNjHitKpIZCD1CydSK3OTmvaHbDGxHWkpeQe49MsElpJKRgIEqkBDvu8x1mQBwXcDpLp9fgfKMbE27CuD3Rqr/e9TclpXDIDSv+qjz0qnVc9rZF0Lqs77Sux4H+EnlLEmIsLajWa2Xf0Jmyny4Ph6uGG+f9ouJz8WCJGmFKLA9yZ2cmnwNFQVXpOyDus2rt7PpyH7lK7KyoH44dzv6GENAo5C/r/vNDdZJaG9ap9UhmH9BmaP7oVzSSMDHPVUPU3MyXy4Qq6yr3ZlZPrZcRz4kRMlmlLQCJBeL0Lar0M8saAW1ajz/kM6k/spyl/NjGlwNdocZ3MR+Di30/svsncd4IDn3FubUBwoCnAGyqnrRACggTibhOZspUXypy9fgjZMC4+56eHTPll6S3JxV0HAFngTghZLwZsmB40mgtJ5TCWg9zoyNwVestCV95f3AeU5ct5TvvtEK7DPdr1F538b9UfITykYFvCOkvBoxeyNx76PFbASctPSytdTegYk9Ss8RXjEVJlFpfsXAwmjLigmEEbUDNOzsZlTIC3xy4N456J+8="
-  file: HelloGithub
+  file: Debug/HelloGithub.exe
   skip_cleanup: true
   on:
     tags: false
