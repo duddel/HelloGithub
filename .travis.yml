@@ -26,3 +26,4 @@ deploy:
   skip_cleanup: true
   on:
     tags: false
+    condition: $TRAVIS_OS_NAME = windows
