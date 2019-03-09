@@ -25,5 +25,5 @@ deploy:
   file: Debug/HelloGithub.exe
   skip_cleanup: true
   on:
-    tags: false
+    tags: true
     condition: $TRAVIS_OS_NAME = windows

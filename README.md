@@ -23,11 +23,10 @@ Make a simple executable that is built by **Travis CI** using CMake.
 
 * building on Windows with MinGW-w64 **(fails** *due to CMake "sh.exe is in your PATH" error*)
 * how to change compiler on *os: windows* to MinGW other than specifying CMake generator: *-G "MinGW Makefiles"*?
-* use CMake ExternalProject to add a 3rd party library to the build
 
 ## Lessons Learned
 
-* Deploy to GitHub:
+* Deploy from Travis CI to GitHub:
     * create a *Personal access token* in GitHub settings
     * use *Travis command line client* (that Ruby tool) to encrypt the token
     * add it with *secure:* as *api_key* to .travis.yml
