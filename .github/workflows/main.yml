@@ -5,7 +5,11 @@ on: push
 jobs:
   build:
     name: main configure and build
-    runs-on: ubuntu-16.04
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04, windows-2016, windows-2019]
 
     steps:
     - uses: actions/checkout@v1
