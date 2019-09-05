@@ -15,4 +15,6 @@ jobs:
         cd _build
         cmake ..
     - name: build
-      run: cmake --build .
+      run: |
+        cd _build
+        cmake --build .
