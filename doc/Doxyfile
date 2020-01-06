@@ -1,0 +1,4 @@
+PROJECT_NAME = "Hello GitHub"
+INPUT = ../src/
+OUTPUT_DIRECTORY = ./_output
+EXTRACT_ALL = YES
