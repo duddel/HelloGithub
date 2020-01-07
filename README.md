@@ -12,6 +12,7 @@ My learning project to test out some GitHub and CI topics
 -   simple C++11 CMake project
 -   building with Travis CI on Linux with gcc, clang and Windows (MSVC)
 -   tags are deployed to GitHub Releases by Travis CI
+-   documentation is deployed to `gh-pages` branch by running this workflow: [.github/workflows/docs.yml](.github/workflows/docs.yml)
 
 ## Lessons Learned
 

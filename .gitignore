@@ -1,4 +1,5 @@
 **/_build
+doc/_output
 
 # Prerequisites
 *.d
