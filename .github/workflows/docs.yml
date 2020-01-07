@@ -12,12 +12,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-
+      - name: install deps
+        run: |
+          sudo apt update
+          sudo apt install doxygen
       - name: build docs
         run: |
           cd doc
           doxygen
-
       - name: deploy docs
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
